@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  priority: 1
+  link: MyText
+  type: 
+  status: MyString
+  read_date: 2024-10-29 06:04:00
+
+two:
+  message: MyText
+  priority: 1
+  link: MyText
+  type: 
+  status: MyString
+  read_date: 2024-10-29 06:04:00
