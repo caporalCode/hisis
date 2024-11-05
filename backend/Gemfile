@@ -58,3 +58,4 @@ gem "devise-api"
 gem "pundit"
 
 gem "blueprinter"
+gem "rack-cors", "~> 2.0"
