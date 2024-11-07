@@ -37,7 +37,10 @@ module Api
         head :no_content
       end
 
-      def search; end
+      def search
+        @real_estates = RealEstate.geo_search(params[:q])
+        render json: @real_estates
+      end
 
       private
 

@@ -12,4 +12,8 @@ class RealEstate < ApplicationRecord
   enum status: { available: 'available', rented: 'rented', saled: 'saled' }
   enum available_for: { rent: 'rent', sale: 'sale' }
   enum furnished_level: { fully_furnished: 'fully_furnished', partially_furnished: 'partially_furnished', unfurnished: 'unfurnished' }
+
+  def self.geo_search(query)
+    Address.near(query, 10, units: :km).where(addressable_type: 'RealEstate').map(&:addressable)
+  end
 end

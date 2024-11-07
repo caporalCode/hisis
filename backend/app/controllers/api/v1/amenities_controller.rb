@@ -9,19 +9,19 @@ module Api
       # GET /api/v1/amenities
       def index
         @amenities = Amenity.all
-        render json: @amenities
+        render json: AmenityBlueprint.render(@amenities, root: :data)
       end
 
       # GET /api/v1/amenities/:id
       def show
-        render json: @amenity
+        render json: AmenityBlueprint.render(@amenity)
       end
 
       # POST /api/v1/amenities
       def create
         @amenity = Amenity.new(amenity_params)
         if @amenity.save
-          render json: @amenity, status: :created
+          render json: AmenityBlueprint.render(@amenity), status: :created
         else
           render json: @amenity.errors, status: :unprocessable_entity
         end
@@ -30,7 +30,7 @@ module Api
       # PUT /api/v1/amenities/:id
       def update
         if @amenity.update(amenity_params)
-          render json: @amenity
+          render json: AmenityBlueprint.render(@amenity)
         else
           render json: @amenity.errors, status: :unprocessable_entity
         end
